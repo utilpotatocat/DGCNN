@@ -1,0 +1,2 @@
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_s3dis_val_visu', k=20, lr=0.001, model='dgcnn', model_root='pretrained/semseg_s3dis/models/model_1.t7', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area=None, test_batch_size=16, use_sgd=True, visu='scene0568_00', visu_format='ply')
+Using GPU : 0 from 1 devices
