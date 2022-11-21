@@ -22,6 +22,7 @@ import numpy as np
 from torch.utils.data import DataLoader
 from util import cal_loss, IOStream
 import sklearn.metrics as metrics
+import open3d as o3d
 
 
 def _init_():
@@ -37,6 +38,7 @@ def _init_():
     os.system('cp data.py checkpoints' + '/' + args.exp_name + '/' + 'data.py.backup')
 
 
+
 def calculate_sem_IoU(pred_np, seg_np):
     I_all = np.zeros(13)
     U_all = np.zeros(13)
@@ -47,6 +49,25 @@ def calculate_sem_IoU(pred_np, seg_np):
             I_all[sem] += I
             U_all[sem] += U
     return I_all / U_all
+
+def draw_pointcloud(points,seg,pointname):
+    point_cloud = o3d.geometry.PointCloud()
+    point_cloud.points = o3d.utility.Vector3dVector(points)
+    point_cloud.paint_uniform_color([0.5, 0.5, 0.5])
+    idx=0
+    for i in seg:
+        if i==0:
+            point_cloud.colors[idx] = [1, 0, 0]  # 分割块1 红色
+            idx=idx+1
+        elif i==1:
+            point_cloud.colors[idx] = [0, 1, 0]  # 分割块2 绿色
+            idx = idx + 1
+        elif i==2:
+            point_cloud.colors[idx] = [0, 0, 1]  # 分割块3 蓝色
+            idx = idx + 1
+        elif i == 3:
+            point_cloud.colors[idx] = [1, 0, 1]  # 分割块4 紫色
+            idx = idx + 1
 
 
 def train(args, io):
