@@ -1,4 +1,5 @@
 # Dynamic Graph CNN for Learning on Point Clouds
+这是原作者的实现版本，其中pytorch只实现了分类模块
 We propose a new neural network module dubbed EdgeConv suitable for CNN-based high-level tasks on point clouds including classification and segmentation. EdgeConv is differentiable and can be plugged into existing architectures.
 
 [[Project]](https://liuziwei7.github.io/projects/DGCNN) [[Paper]](https://arxiv.org/abs/1801.07829) [[Press]](http://news.mit.edu/2019/deep-learning-point-clouds-1021)
@@ -11,7 +12,7 @@ We propose a new neural network module dubbed EdgeConv suitable for CNN-based hi
 Further information please contact [Yue Wang](https://www.csail.mit.edu/person/yue-wang) and [Yongbin Sun](https://autoid.mit.edu/people-2).
 
 ## Author's Implementations
-这是原作者的实现版本，其中pytorch只实现了分类模块
+
 The classification experiments in our paper are done with the pytorch implementation.
 
 * [tensorflow-dgcnn](./tensorflow)
