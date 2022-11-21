@@ -1,0 +1,10 @@
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=False, exp_name='semseg_6', k=20, lr=0.001, model='dgcnn', model_root='', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=False, exp_name='semseg_6', k=20, lr=0.001, model='dgcnn', model_root='', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=False, exp_name='semseg_6', k=20, lr=0.001, model='dgcnn', model_root='', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=False, exp_name='semseg_6', k=20, lr=0.001, model='dgcnn', model_root='', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=False, exp_name='semseg_6', k=20, lr=0.001, model='dgcnn', model_root='', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices

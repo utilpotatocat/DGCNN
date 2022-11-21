@@ -1,0 +1,29 @@
+Namespace(batch_size=32, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=16, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=16, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=8, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Train 0, loss: 0.873806, train acc: 0.881787, train avg acc: 0.849362, train iou: 0.745363
+Namespace(batch_size=16, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=4, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Train 0, loss: 0.871692, train acc: 0.883336, train avg acc: 0.850820, train iou: 0.748022
+Namespace(batch_size=4, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Train 0, loss: 0.872811, train acc: 0.882627, train avg acc: 0.850722, train iou: 0.747568
+Namespace(batch_size=4, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Train 0, loss: 0.872436, train acc: 0.882909, train avg acc: 0.850328, train iou: 0.747769
+Namespace(batch_size=16, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=2, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=False, exp_name='partseg_airplane', k=40, lr=0.001, model='dgcnn', model_path='', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=16, use_sgd=True)
+Using GPU : 0 from 1 devices
+Train 0, loss: 0.870455, train acc: 0.885807, train avg acc: 0.860334, train iou: 0.750230

@@ -1,0 +1,9 @@
+data/
+log/
+Lib/
+etc/
+Scripts/
+share/
+Include/
+*.pyc
+.DS_Store
