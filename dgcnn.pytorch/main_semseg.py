@@ -50,24 +50,49 @@ def calculate_sem_IoU(pred_np, seg_np):
             U_all[sem] += U
     return I_all / U_all
 
-def draw_pointcloud(points,seg,pointname):
+#这是不完善的，原本应该有13种场景但是测试的第一个场景只有  0  1  2  8
+def draw_pointcloud(points, seg, pointname):
     point_cloud = o3d.geometry.PointCloud()
-    point_cloud.points = o3d.utility.Vector3dVector(points)
+    print("points",points)
+    points_a=points[:,[0,1,2]]
+    print("points_a",points_a)
+    print("points_a", points_a.shape)
+    point_cloud.points = o3d.utility.Vector3dVector(points_a)
     point_cloud.paint_uniform_color([0.5, 0.5, 0.5])
-    idx=0
+    idx = 0
     for i in seg:
-        if i==0:
+        if i == 0:
             point_cloud.colors[idx] = [1, 0, 0]  # 分割块1 红色
-            idx=idx+1
-        elif i==1:
+            idx = idx + 1
+        elif i == 1:
             point_cloud.colors[idx] = [0, 1, 0]  # 分割块2 绿色
             idx = idx + 1
-        elif i==2:
+        elif i == 2:
             point_cloud.colors[idx] = [0, 0, 1]  # 分割块3 蓝色
             idx = idx + 1
         elif i == 3:
-            point_cloud.colors[idx] = [1, 0, 1]  # 分割块4 紫色
+            point_cloud.colors[idx] = [0.5, 0.5, 0.5]  # 分割块4 灰色
             idx = idx + 1
+        elif i == 4:
+            point_cloud.colors[idx] = [1, 1, 0]  # 分割块5
+            idx = idx + 1
+        elif i == 5:
+            point_cloud.colors[idx] = [0, 1, 1]  # 分割块6
+            idx = idx + 1
+        elif i == 6:
+            point_cloud.colors[idx] = [0, 0, 0]  # 分割块7
+            idx = idx + 1
+        elif i == 7:
+            point_cloud.colors[idx] = [1, 1, 1]  # 分割块8
+            idx = idx + 1
+        elif i == 8:
+            point_cloud.colors[idx] = [1, 0, 1]  # 分割块9 紫色
+            idx = idx + 1
+        else:
+            print("输入的分类信息可能有误")
+
+
+    o3d.visualization.draw_geometries([point_cloud], window_name=pointname)
 
 
 def train(args, io):
@@ -228,7 +253,16 @@ def test(args, io):
             test_pred_cls = []
             test_true_seg = []
             test_pred_seg = []
-            for data, seg in test_loader:
+
+            # test_loader.dataset.data:    (1105, 4096, 9)   一共1105个模型，每个模型4096个点，每个点有9维信息
+
+
+
+            for data, seg in test_loader:     #data:[4, 4096, 9]  seg:[4, 4096]  一共将每个场景4096个点 分为0-8共计9种情形
+                                                # 例如第一个模型就是[588 446 2402 0 0 0 0 0 660]
+
+
+
                 data, seg = data.to(device), seg.to(device)
                 data = data.permute(0, 2, 1)
                 batch_size = data.size()[0]
@@ -241,6 +275,11 @@ def test(args, io):
                 test_pred_cls.append(pred_np.reshape(-1))
                 test_true_seg.append(seg_np)
                 test_pred_seg.append(pred_np)
+
+
+
+
+
             test_true_cls = np.concatenate(test_true_cls)
             test_pred_cls = np.concatenate(test_pred_cls)
             test_acc = metrics.accuracy_score(test_true_cls, test_pred_cls)
@@ -248,6 +287,25 @@ def test(args, io):
             test_true_seg = np.concatenate(test_true_seg, axis=0)
             test_pred_seg = np.concatenate(test_pred_seg, axis=0)
             test_ious = calculate_sem_IoU(test_pred_seg, test_true_seg)
+
+            print(test_loader.dataset.seg.shape)
+            print(test_loader.dataset.seg[0])
+            print(test_true_seg[0])
+            num_idx = 0
+            iddx = 0
+            for i in range(1104):
+                if (test_loader.dataset.seg[1] == test_true_seg[i]).all():
+                    num_idx=num_idx+1
+                    iddx=i
+            print("num_idx:",num_idx)
+            print("iddx:", iddx)   #0->0
+
+
+            #第0个场景预测值不是很好，第1个场景预测值很好
+            draw_pointcloud(test_loader.dataset.data[1], test_loader.dataset.seg[1], "第1个场景模型的真实值")
+            draw_pointcloud(test_loader.dataset.data[1], test_true_seg[1], "第1个场景模型的真实值2")
+            draw_pointcloud(test_loader.dataset.data[1], test_pred_seg[1], "第1个场景模型的预测值")
+
             outstr = 'Test :: test area: %s, test acc: %.6f, test avg acc: %.6f, test iou: %.6f' % (test_area,
                                                                                                     test_acc,
                                                                                                     avg_per_class_acc,

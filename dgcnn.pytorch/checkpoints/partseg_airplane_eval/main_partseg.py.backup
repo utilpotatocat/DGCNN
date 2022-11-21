@@ -83,8 +83,6 @@ def draw_pointcloud(points,seg,pointname):
             point_cloud.colors[idx] = [1, 0, 1]  # 分割块4 紫色
             idx = idx + 1
 
-
-
     o3d.visualization.draw_geometries([point_cloud],window_name=pointname)
 
 
@@ -370,7 +368,7 @@ def test(args, io):
     # print("num_idx:",num_idx)
     # print("iddx:", iddx)   #0-->105;1-->67;2-->11   data-->true_seg
 
-    draw_pointcloud(test_loader.dataset.data[0], test_pred_seg[105], "第0个飞机模型的真实值")
+    draw_pointcloud(test_loader.dataset.data[0], test_loader.dataset.seg[0], "第0个飞机模型的真实值")
 
     draw_pointcloud(test_loader.dataset.data[0], test_pred_seg[105], "第0个飞机模型的预测值")
 
