@@ -291,19 +291,17 @@ def test(args, io):
             print(test_loader.dataset.seg.shape)
             print(test_loader.dataset.seg[0])
             print(test_true_seg[0])
-            num_idx = 0
-            iddx = 0
-            for i in range(1104):
-                if (test_loader.dataset.seg[1] == test_true_seg[i]).all():
-                    num_idx=num_idx+1
-                    iddx=i
-            print("num_idx:",num_idx)
-            print("iddx:", iddx)   #0->0
-
+            # num_idx = 0
+            # iddx = 0
+            # for i in range(1104):
+            #     if (test_loader.dataset.seg[1] == test_true_seg[i]).all():
+            #         num_idx=num_idx+1
+            #         iddx=i
+            # print("num_idx:",num_idx)
+            # print("iddx:", iddx)   #0->0
 
             #第0个场景预测值不是很好，第1个场景预测值很好
             draw_pointcloud(test_loader.dataset.data[1], test_loader.dataset.seg[1], "第1个场景模型的真实值")
-            draw_pointcloud(test_loader.dataset.data[1], test_true_seg[1], "第1个场景模型的真实值2")
             draw_pointcloud(test_loader.dataset.data[1], test_pred_seg[1], "第1个场景模型的预测值")
 
             outstr = 'Test :: test area: %s, test acc: %.6f, test avg acc: %.6f, test iou: %.6f' % (test_area,

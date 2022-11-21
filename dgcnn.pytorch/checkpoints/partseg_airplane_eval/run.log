@@ -312,3 +312,6 @@ Test :: test acc: 0.915871, test avg acc: 0.898308, test iou: 0.838198
 Namespace(batch_size=4, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=True, exp_name='partseg_airplane_eval', k=40, lr=0.001, model='dgcnn', model_path='pretrained/model.partseg_airplane200.t7', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=4, use_sgd=True)
 Using GPU : 0 from 1 devices
 Test :: test acc: 0.915871, test avg acc: 0.898308, test iou: 0.838198
+Namespace(batch_size=4, class_choice='airplane', dataset='shapenetpart', dropout=0.5, emb_dims=1024, epochs=200, eval=True, exp_name='partseg_airplane_eval', k=40, lr=0.001, model='dgcnn', model_path='pretrained/model.partseg_airplane200.t7', momentum=0.9, no_cuda=False, num_points=2048, scheduler='cos', seed=1, test_batch_size=4, use_sgd=True)
+Using GPU : 0 from 1 devices
+Test :: test acc: 0.915871, test avg acc: 0.898308, test iou: 0.838198
