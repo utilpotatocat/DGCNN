@@ -117,10 +117,10 @@ def draw_pointcloud(points, seg, pointname):
         else:
             print("输入的分割信息可能有误")
 
-    print("本场景存在的语义分割出的部件有:", end=" ")
+    print("本场景存在的语义分割出的部件有:", end="  ")
     for i in range(13):
         if point_seg[i]>0:
-            print(seg_name[i],"("+str(i)+")  ",end=" ")
+            print(seg_name[i],"("+str(i)+")  ",end="")
     print()
 
     o3d.visualization.draw_geometries([point_cloud], window_name=pointname)
