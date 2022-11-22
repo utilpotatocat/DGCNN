@@ -53,55 +53,75 @@ def calculate_sem_IoU(pred_np, seg_np):
 #这是不完善的，原本应该有13种场景但是测试的第一个场景只有  0  1  2  8
 def draw_pointcloud(points, seg, pointname):
     point_cloud = o3d.geometry.PointCloud()
-    print("points",points)
+
     points_a=points[:,[0,1,2]]  #截取九维数组的前3维 即 截取(x,y,z) 不需要 (r,g,b,x',y',z') x'指相对坐标，即标准化后的每个block相对于所在房间的位置坐标
-    print("points_a",points_a)
-    print("points_a", points_a.shape)
+
     point_cloud.points = o3d.utility.Vector3dVector(points_a)
     point_cloud.paint_uniform_color([0.5, 0.5, 0.5])
     idx = 0
+    point_seg=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    seg_name=["ceiling","floor","wall","beam","column","window","door","table","chair","sofa","bookcase","board","clutter"]
     for i in seg:
         if i == 0:
             point_cloud.colors[idx] = [1, 0, 0]  # 分割块1 红色
             idx = idx + 1
+            point_seg[0]=point_seg[0]+1
         elif i == 1:
             point_cloud.colors[idx] = [0, 1, 0]  # 分割块2 绿色
             idx = idx + 1
+            point_seg[1] = point_seg[1] + 1
         elif i == 2:
             point_cloud.colors[idx] = [0, 0, 1]  # 分割块3 蓝色
             idx = idx + 1
+            point_seg[2] = point_seg[2] + 1
         elif i == 3:
             point_cloud.colors[idx] = [0.5, 0.5, 0.5]  # 分割块4 灰色
             idx = idx + 1
+            point_seg[3] = point_seg[3] + 1
         elif i == 4:
             point_cloud.colors[idx] = [1, 1, 0]  # 分割块5  黄色
             idx = idx + 1
+            point_seg[4] = point_seg[4] + 1
         elif i == 5:
             point_cloud.colors[idx] = [0, 1, 1]  # 分割块6  青色
             idx = idx + 1
+            point_seg[5] = point_seg[5] + 1
         elif i == 6:
             point_cloud.colors[idx] = [0, 0, 0]  # 分割块7   黑色
             idx = idx + 1
+            point_seg[6] = point_seg[6] + 1
         elif i == 7:
             point_cloud.colors[idx] = [1, 0.5, 0.4]  # 分割块8  珊瑚红色 浅红色
             idx = idx + 1
+            point_seg[7] = point_seg[7] + 1
         elif i == 8:
             point_cloud.colors[idx] = [1, 0, 1]  # 分割块9 品红 紫色
             idx = idx + 1
+            point_seg[8] = point_seg[8] + 1
         elif i == 9:
             point_cloud.colors[idx] = [1, 0.5, 0]  # 分割块10 橘黄色
             idx = idx + 1
+            point_seg[9] = point_seg[9] + 1
         elif i == 10:
             point_cloud.colors[idx] = [0.5, 1, 0]  # 分割块11 黄绿色
             idx = idx + 1
+            point_seg[10] = point_seg[10] + 1
         elif i == 11:
             point_cloud.colors[idx] = [0, 0.75, 0.5]  # 分割块12 土耳其蓝色 湖蓝色
             idx = idx + 1
+            point_seg[11] = point_seg[11] + 1
         elif i == 12:
             point_cloud.colors[idx] = [1, 0.9, 0.75]  # 分割块13 杏仁灰色 皮肤色
             idx = idx + 1
+            point_seg[12] = point_seg[12] + 1
         else:
             print("输入的分割信息可能有误")
+
+    print("本场景存在的语义分割出的部件有:", end="  ")
+    for i in range(13):
+        if point_seg[i]>0:
+            print(seg_name[i],"("+str(i)+")  ",end="")
+    print()
 
     o3d.visualization.draw_geometries([point_cloud], window_name=pointname)
 
@@ -297,9 +317,9 @@ def test(args, io):
             test_pred_seg = np.concatenate(test_pred_seg, axis=0)
             test_ious = calculate_sem_IoU(test_pred_seg, test_true_seg)
 
-            print(test_loader.dataset.seg.shape)
-            print(test_loader.dataset.seg[0])
-            print(test_true_seg[0])
+            # print(test_loader.dataset.seg.shape)
+            # print(test_loader.dataset.seg[0])
+            # print(test_true_seg[0])
             # num_idx = 0
             # iddx = 0
             # for i in range(1104):
@@ -309,9 +329,9 @@ def test(args, io):
             # print("num_idx:",num_idx)
             # print("iddx:", iddx)   #0->0
 
-            #第0个场景预测值不是很好，第1个场景预测值很好
-            draw_pointcloud(test_loader.dataset.data[15], test_loader.dataset.seg[15], "第1个场景模型的真实值")
-            draw_pointcloud(test_loader.dataset.data[15], test_pred_seg[15], "第1个场景模型的预测值")
+            #第0个场景预测值不是很好，第1个场景预测值很好，第15个则是有小部分分割不正确大部分正确
+            draw_pointcloud(test_loader.dataset.data[15], test_loader.dataset.seg[15], "第15个场景模型的真实值")
+            draw_pointcloud(test_loader.dataset.data[15], test_pred_seg[15], "第15个场景模型的预测值")
 
             outstr = 'Test :: test area: %s, test acc: %.6f, test avg acc: %.6f, test iou: %.6f' % (test_area,
                                                                                                     test_acc,
