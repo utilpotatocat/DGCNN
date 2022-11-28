@@ -129,3 +129,14 @@ Test :: test area: 6, test acc: 0.904330, test avg acc: 0.826741, test iou: 0.74
 Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_eval_6', k=20, lr=0.001, model='dgcnn', model_root='pretrained/semseg/', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=4, use_sgd=True)
 Using GPU : 0 from 1 devices
 Test :: test area: 6, test acc: 0.904330, test avg acc: 0.826741, test iou: 0.742650
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_eval_6', k=20, lr=0.001, model='dgcnn', model_root='pretrained/semseg/', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=4, use_sgd=True)
+Using GPU : 0 from 1 devices
+Test :: test area: 6, test acc: 0.904330, test avg acc: 0.826741, test iou: 0.742650
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_eval_6', k=20, lr=0.001, model='dgcnn', model_root='pretrained/semseg/', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=4, use_sgd=True)
+Using GPU : 0 from 1 devices
+Test :: test area: 6, test acc: 0.904330, test avg acc: 0.826741, test iou: 0.742650
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_eval_6', k=20, lr=0.001, model='dgcnn', model_root='checkpoints/semseg/models/', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=4, use_sgd=True)
+Using GPU : 0 from 1 devices
+Namespace(batch_size=32, dataset='S3DIS', dropout=0.5, emb_dims=1024, epochs=100, eval=True, exp_name='semseg_eval_6', k=20, lr=0.001, model='dgcnn', model_root='checkpoints/semseg_6/models/', momentum=0.9, no_cuda=False, num_points=4096, scheduler='cos', seed=1, test_area='6', test_batch_size=4, use_sgd=True)
+Using GPU : 0 from 1 devices
+Test :: test area: 6, test acc: 0.832650, test avg acc: 0.765586, test iou: 0.619395
